@@ -1,7 +1,32 @@
-﻿@{
+﻿@model BoardModel
+@{
     ViewData["Title"] = "About";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+
+<h3>File Upload Sample - Single File Upload</h3>
+
+<form asp-controller="Home" asp-action="SigleFileUpload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <button type="submit">upload</button>
+</form>
+
+
+<h3>File Upload Sample - Multi File Upload</h3>
+
+<form asp-controller="Home" asp-action="MultiFileUpload" method="post" enctype="multipart/form-data">
+    <input type="file" name="files" multiple />
+    <button type="submit">upload</button>
+</form>
+
+
+<h3>File Upload Sample - File in Model File Upload</h3>
+
+<form asp-controller="Home" asp-action="ModelInFileUpload" method="post" enctype="multipart/form-data">
+    <input type="text" name="title" asp-for="title" />
+    <p /><p />
+    <textarea name="content" asp-for="content"></textarea>
+
+    <input type="file" name="files" multiple asp-for="files" />
+    <button type="submit">upload</button>
+</form>
